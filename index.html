@@ -20,16 +20,21 @@
             0%, 100% { opacity: 0.3; transform: scale(1); }
             50% { opacity: 0.6; transform: scale(1.12); }
         }
-        @keyframes borderShimmer {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
         .animate-float {
             animation: floatSlow 7s ease-in-out infinite;
         }
         .animate-glow {
             animation: pulseGlow 6s ease-in-out infinite;
+        }
+
+        /* Luxurious Dynamic Background Pattern Overlays */
+        .bg-pattern-dark {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .bg-pattern-light {
+            background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+            background-size: 32px 32px;
         }
 
         /* Luxurious High-Visibility Glass & Internal Glow Styles */
@@ -99,7 +104,7 @@
         }
     </style>
 </head>
-<body id="page-body" class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden transition-colors duration-700">
+<body id="page-body" class="bg-slate-950 bg-pattern-dark text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden transition-colors duration-700">
 
     <!-- Ambient Luxurious Background Glow Effects -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -472,8 +477,8 @@
             const cards = document.querySelectorAll('.card-theme');
 
             if (isLight) {
-                // White / Morning Theme
-                body.className = "bg-slate-100 text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden transition-colors duration-700";
+                // White / Morning Theme with Pattern
+                body.className = "bg-slate-100 bg-pattern-light text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden transition-colors duration-700";
                 header.className = "fixed top-0 inset-x-0 z-50 glass-nav-light transition-all duration-700";
                 navTitle.className = "text-base font-black tracking-wider text-slate-900 transition-colors duration-700";
                 navLinks.className = "hidden md:flex items-center gap-8 text-xs font-bold text-slate-700 reveal-up transition-colors duration-700";
@@ -493,8 +498,8 @@
                 document.querySelectorAll('.text-theme-heading').forEach(el => el.classList.replace('text-white', 'text-slate-900'));
                 document.querySelectorAll('.text-theme-desc').forEach(el => el.classList.replace('text-slate-400', 'text-slate-600'));
             } else {
-                // Dark / Night Theme
-                body.className = "bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden transition-colors duration-700";
+                // Dark / Night Theme with Pattern
+                body.className = "bg-slate-950 bg-pattern-dark text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden transition-colors duration-700";
                 header.className = "fixed top-0 inset-x-0 z-50 glass-nav-dark transition-all duration-700";
                 navTitle.className = "text-base font-black tracking-wider text-white transition-colors duration-700";
                 navLinks.className = "hidden md:flex items-center gap-8 text-xs font-bold text-slate-300 reveal-up transition-colors duration-700";
